@@ -26,11 +26,16 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  color: inherit;
+}
+
 .background {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .grid {
@@ -43,6 +48,7 @@ body {
   transform: perspective(900px) rotateX(55deg);
   transform-origin: top;
   filter: blur(0.2px);
+  opacity: 0.8;
 }
 
 .glow {
@@ -52,11 +58,97 @@ body {
     radial-gradient(circle at 20% 20%, var(--glow), transparent 50%);
 }
 
+.orbit {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 1px solid rgba(110, 242, 255, 0.2);
+  top: 8%;
+  right: -120px;
+  box-shadow: 0 0 80px rgba(110, 242, 255, 0.2);
+  animation: orbit 18s linear infinite;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.2;
+  animation: shimmer 12s ease-in-out infinite;
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
 .hero {
+  padding: 3.5rem clamp(1.5rem, 6vw, 6rem) 2rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.logo {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.nav-links a {
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.hero-main {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 3rem;
-  padding: 5rem clamp(1.5rem, 6vw, 6rem) 4rem;
 }
 
 .hero-content h1 {
@@ -117,6 +209,28 @@ body {
   box-shadow: none;
 }
 
+.skills {
+  margin-top: 2.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.pill-group span {
+  border: 1px solid rgba(157, 117, 255, 0.4);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: rgba(15, 18, 32, 0.6);
+}
+
 .hero-card {
   background: var(--panel-light);
   border: 1px solid rgba(110, 242, 255, 0.2);
@@ -147,6 +261,18 @@ body {
 .card-body h3 {
   font-size: 1.1rem;
   color: var(--text);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.stats h4 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4rem;
+  color: var(--accent);
 }
 
 .section {
@@ -208,9 +334,15 @@ body {
   border: 1px solid rgba(157, 117, 255, 0.2);
 }
 
+.timeline-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .timeline-content h3 {
   font-size: 1.1rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
 }
 
 .meta {
@@ -224,6 +356,21 @@ body {
   color: var(--muted);
   display: grid;
   gap: 0.75rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tags span {
+  border-radius: 999px;
+  border: 1px solid rgba(110, 242, 255, 0.3);
+  padding: 0.2rem 0.7rem;
+  font-size: 0.8rem;
+  color: var(--accent);
 }
 
 .card-grid {
@@ -270,12 +417,17 @@ body {
 }
 
 @media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .hero-card {
-    order: -1;
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
+  .hero-main {
+    grid-template-columns: 1fr;
   }
 
   .hero-actions {

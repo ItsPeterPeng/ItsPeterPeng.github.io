@@ -16,33 +16,66 @@
     <div class="background">
       <div class="grid"></div>
       <div class="glow"></div>
+      <div class="orbit"></div>
+      <div class="stars"></div>
     </div>
 
     <header class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">Hello, I am</p>
-        <h1>Peter Peng</h1>
-        <p class="subtitle">Computer Science • Software Engineering • Emerging Tech</p>
-        <p class="summary">
-          I build reliable, user-focused software with a passion for performance, clean architecture,
-          and futuristic interfaces. Below is a snapshot of my experience, certifications, and
-          education.
-        </p>
-        <div class="hero-actions">
-          <a class="button" href="#experience">View Experience</a>
-          <a class="button ghost" href="mailto:youremail@example.com">Contact</a>
+      <nav class="nav">
+        <span class="logo">PP</span>
+        <div class="nav-links">
+          <a href="#experience">Experience</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
         </div>
-      </div>
-      <div class="hero-card">
-        <div class="card-header">
-          <span>Status</span>
-          <span class="status">Available for impactful projects</span>
+      </nav>
+
+      <div class="hero-main">
+        <div class="hero-content">
+          <p class="eyebrow">Hello, I am</p>
+          <h1>Peter Peng</h1>
+          <p class="subtitle">Computer Science • Software Engineering • Emerging Tech</p>
+          <p class="summary">
+            I build reliable, user-focused software with a passion for performance, clean architecture,
+            and futuristic interfaces. This page highlights my experience, certifications, and education
+            for a quick glance at my technical journey.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#experience">Explore Experience</a>
+            <a class="button ghost" href="mailto:youremail@example.com">Contact</a>
+          </div>
+          <div class="skills">
+            <span>Core Skills</span>
+            <div class="pill-group">
+              <span>Full-stack Development</span>
+              <span>AI Tooling</span>
+              <span>Distributed Systems</span>
+              <span>Cloud Infrastructure</span>
+            </div>
+          </div>
         </div>
-        <div class="card-body">
-          <p>Location</p>
-          <h3>Seattle, WA (open to remote)</h3>
-          <p>Core Focus</p>
-          <h3>Full-stack engineering • AI tooling • Cloud-native systems</h3>
+        <div class="hero-card">
+          <div class="card-header">
+            <span>Status</span>
+            <span class="status">Open to impactful projects</span>
+          </div>
+          <div class="card-body">
+            <p>Location</p>
+            <h3>Seattle, WA (open to remote)</h3>
+            <p>Core Focus</p>
+            <h3>Full-stack engineering • AI tooling • Cloud-native systems</h3>
+            <div class="stats">
+              <div>
+                <h4>6+</h4>
+                <p>Years building software</p>
+              </div>
+              <div>
+                <h4>12+</h4>
+                <p>Production launches</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -57,25 +90,39 @@
           <article class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <h3>Your Role Title · Company Name</h3>
-              <span class="meta">Month YYYY – Month YYYY · Location</span>
+              <div class="timeline-title">
+                <h3>Your Role Title · Company Name</h3>
+                <span class="meta">Month YYYY – Month YYYY · Location</span>
+              </div>
               <ul>
                 <li>Delivered impactful features, optimized systems, or shipped products aligned with business goals.</li>
                 <li>Collaborated cross-functionally to design, build, and deploy scalable solutions.</li>
                 <li>Applied CS fundamentals (algorithms, data structures, systems design) to solve real-world problems.</li>
               </ul>
+              <div class="tags">
+                <span>Python</span>
+                <span>TypeScript</span>
+                <span>Cloud</span>
+              </div>
             </div>
           </article>
           <article class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <h3>Your Role Title · Company Name</h3>
-              <span class="meta">Month YYYY – Month YYYY · Location</span>
+              <div class="timeline-title">
+                <h3>Your Role Title · Company Name</h3>
+                <span class="meta">Month YYYY – Month YYYY · Location</span>
+              </div>
               <ul>
                 <li>Architected or maintained services with a focus on reliability, performance, and security.</li>
                 <li>Built tooling or automation to improve developer velocity and code quality.</li>
                 <li>Communicated technical decisions clearly to stakeholders.</li>
               </ul>
+              <div class="tags">
+                <span>Systems Design</span>
+                <span>APIs</span>
+                <span>DevOps</span>
+              </div>
             </div>
           </article>
         </div>
@@ -96,6 +143,11 @@
             <h3>Certification Name</h3>
             <p class="meta">Issuing Organization · Year</p>
             <p>Validated skills in relevant tools, frameworks, or methodologies.</p>
+          </div>
+          <div class="info-card">
+            <h3>Certification Name</h3>
+            <p class="meta">Issuing Organization · Year</p>
+            <p>Recognition for advanced coursework or professional upskilling.</p>
           </div>
         </div>
       </section>
@@ -120,7 +172,7 @@
       </section>
     </main>
 
-    <footer class="footer">
+    <footer id="contact" class="footer">
       <p>Let’s build something future-forward.</p>
       <div class="footer-links">
         <a href="mailto:youremail@example.com">youremail@example.com</a>
